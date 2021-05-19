@@ -8,11 +8,7 @@ use App\Models\Employee;
 
 class EmployeeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $emp = Employee::all();
@@ -35,11 +31,11 @@ class EmployeeController extends Controller
 
     public function show($id)
     {
-        $article = Employee::find($id); //id comes from route
-        if( $article ){
-            return new EmployeeResource($article);
+        $emp = Employee::find($id);
+        if( $emp ){
+            return new EmployeeResource($emp);
         }
-        return "Employee Not found"; // temporary error
+        return "Employee Not found";
     }
 
    
